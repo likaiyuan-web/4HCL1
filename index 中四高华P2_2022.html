@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026语文模拟考 - 全题目深度讲评系统</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
+        body { font-family: 'Noto Serif SC', serif; background-color: #f8fafc; color: #1e293b; }
+        .tab-active { border-bottom: 4px solid #2563eb; color: #2563eb; font-weight: bold; }
+        .hidden { display: none; }
+        .explanation { display: none; animation: fadeIn 0.4s ease forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        .correct-bg { background-color: #dcfce7; border-color: #22c55e; }
+        .wrong-bg { background-color: #fee2e2; border-color: #ef4444; }
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; margin-bottom: 8px; }
+        .badge-type { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+        .analysis-box { background-color: #f0f7ff; border-left: 4px solid #3b82f6; padding: 1rem; margin-top: 1rem; font-size: 0.875rem; }
+        .quote-box { background-color: #fffbeb; border: 1px dashed #d97706; padding: 0.75rem; font-style: italic; color: #92400e; margin-bottom: 0.5rem; }
+        .scroll-container::-webkit-scrollbar { height: 4px; }
+        .scroll-container::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    </style>
+</head>
+<body class="pb-12">
+
+    <!-- 顶部导航 -->
+    <header class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-slate-800">语文试卷全内容讲评</h1>
+            <span class="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full font-medium">Q1-Q25 完整解析版</span>
+        </div>
+        <nav class="max-w-6xl mx-auto px-6 flex space-x-6 overflow-x-auto scroll-container border-t">
+            <button onclick="showTab('sec1')" id="btn-sec1" class="py-3 px-1 whitespace-nowrap text-slate-500">语文应用(1-5)</button>
+            <button onclick="showTab('sec2')" id="btn-sec2" class="py-3 px-1 whitespace-nowrap text-slate-500">病句改正(6-10)</button>
+            <button onclick="showTab('sec3')" id="btn-sec3" class="py-3 px-1 whitespace-nowrap text-slate-500">阅读一：宽容(11-15)</button>
+            <button onclick="showTab('sec4')" id="btn-sec4" class="py-3 px-1 whitespace-nowrap tab-active">阅读二：还野与印度(16-25)</button>
+        </nav>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 mt-8 space-y-8">
+
+        <!-- Section 1: 语文应用 (1-5) - 保持不变 -->
+        <section id="sec1" class="tab-content hidden space-y-6">
+            <h3 class="text-xl font-bold border-l-4 border-blue-500 pl-3">A组：短文填充 (1-5)</h3>
+            <div class="space-y-4">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <p class="font-bold mb-4">1. 人倘若能真心诚意行善，其行为肯定值得______。</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <button onclick="checkAns(this, 'A')" class="p-3 border rounded-lg hover:bg-slate-50 text-center">A 嘉许</button>
+                        <button onclick="checkAns(this, 'A')" class="p-3 border rounded-lg hover:bg-slate-50 text-center">B 赞成</button>
+                        <button onclick="checkAns(this, 'A')" class="p-3 border rounded-lg hover:bg-slate-50 text-center">C 彰显</button>
+                        <button onclick="checkAns(this, 'A')" class="p-3 border rounded-lg hover:bg-slate-50 text-center">D 致敬</button>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <p class="font-bold mb-4">2. 我国在经济上的成就______。</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <button onclick="checkAns(this, 'D')" class="p-3 border rounded-lg hover:bg-slate-50 text-center">A 一步登天</button>
+                        <button onclick="checkAns(this, 'D')" class="p-3 border rounded-lg hover:bg-slate-50 text-center">B 有声有色</button>
+                        <button onclick="checkAns(this, 'D')" class="p-3 border rounded-lg hover:bg-slate-50 text-center">C 一帆风顺</button>
+                        <button onclick="checkAns(this, 'D')" class="p-3 border rounded-lg hover:bg-slate-50 text-center">D 有目共睹</button>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <p class="font-bold mb-4">3. 如此______的行为，难免浪费人力物力。</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <button onclick="checkAns(this, 'B')" class="p-3 border rounded-lg hover:bg-slate-50 text-center">A 俗气</button>
+                        <button onclick="checkAns(this, 'B')" class="p-3 border rounded-lg hover:bg-slate-50 text-center">B 奢侈</button>
+                        <button onclick="checkAns(this, 'B')" class="p-3 border rounded-lg hover:bg-slate-50 text-center">C 执着</button>
+                        <button onclick="checkAns(this, 'B')" class="p-3 border rounded-lg hover:bg-slate-50 text-center">D 肤浅</button>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <p class="font-bold mb-4">4. 便是对行善者最好的______。</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <button onclick="checkAns(this, 'B')" class="p-3 border rounded-lg hover:bg-slate-50 text-center">A 赏赐</button>
+                        <button onclick="checkAns(this, 'B')" class="p-3 border rounded-lg hover:bg-slate-50 text-center">B 回报</button>
+                        <button onclick="checkAns(this, 'B')" class="p-3 border rounded-lg hover:bg-slate-50 text-center">C 酬谢</button>
+                        <button onclick="checkAns(this, 'B')" class="p-3 border rounded-lg hover:bg-slate-50 text-center">D 偿还</button>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <p class="font-bold mb-4">5. 不失为一个行善的好______。</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <button onclick="checkAns(this, 'C')" class="p-3 border rounded-lg hover:bg-slate-50 text-center">A 公式</button>
+                        <button onclick="checkAns(this, 'C')" class="p-3 border rounded-lg hover:bg-slate-50 text-center">B 技巧</button>
+                        <button onclick="checkAns(this, 'C')" class="p-3 border rounded-lg hover:bg-slate-50 text-center">C 途径</button>
+                        <button onclick="checkAns(this, 'C')" class="p-3 border rounded-lg hover:bg-slate-50 text-center">D 谋略</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: 病句改正 (6-10) - 保持不变 -->
+        <section id="sec2" class="tab-content hidden space-y-6">
+            <h3 class="text-xl font-bold border-l-4 border-red-500 pl-3">B组：病句改正 (6-10)</h3>
+            <div class="grid gap-6">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <span class="badge badge-type">类型：动宾搭配不当</span>
+                    <p class="text-red-500 italic mb-2">【原句划线】也加深了眼药水的市场需求。</p>
+                    <p class="font-bold text-blue-800 underline">【改正】也提高了眼药水的市场需求。</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <span class="badge badge-type">类型：语序不当</span>
+                    <p class="text-red-500 italic mb-2">【原句划线】长期使用这类大量眼药水</p>
+                    <p class="font-bold text-blue-800 underline">【改正】长期大量使用这类眼药水</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <span class="badge badge-type">类型：成分赘余</span>
+                    <p class="text-red-500 italic mb-2">【原句划线】而难以区分识别。</p>
+                    <p class="font-bold text-blue-800 underline">【改正】而难以区分。</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <span class="badge badge-type">类型：搭配不当</span>
+                    <p class="text-red-500 italic mb-2">【原句划线】可促进眼结膜感染细菌</p>
+                    <p class="font-bold text-blue-800 underline">【改正】可促使眼结膜感染细菌</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <span class="badge badge-type">类型：成分残缺</span>
+                    <p class="text-red-500 italic mb-2">【原句划线】应该学会保护它</p>
+                    <p class="font-bold text-blue-800 underline">【改正】我们应该学会保护它</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: 阅读一 (11-15) - 保持不变 -->
+        <section id="sec3" class="tab-content hidden space-y-8">
+            <h3 class="text-xl font-bold border-l-4 border-green-600 pl-3">阅读理解一：宽容题目深度分析</h3>
+            
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <p class="font-bold">11. 刘宽的妻子让婢女把汤洒在夫君官服上，用意是？</p>
+                    <div class="grid grid-cols-1 gap-2">
+                        <button onclick="checkAns(this, 'C')" class="p-2 border rounded text-left">A 展示宽容机会</button>
+                        <button onclick="checkAns(this, 'C')" class="p-2 border rounded text-left">B 观察是否训斥</button>
+                        <button onclick="checkAns(this, 'C')" class="p-2 border rounded text-left bg-blue-50">C 试探是否如传闻宽厚</button>
+                        <button onclick="checkAns(this, 'C')" class="p-2 border rounded text-left">D 让夫君树立榜样</button>
+                    </div>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-lg">
+                    <div class="quote-box">“...夫人欲试宽令恚，伺当朝装严已，使婢奉肉羹，翻污朝衣...”</div>
+                    <div class="text-sm font-bold text-blue-700">【题目分析】</div>
+                    <p class="text-xs">考查情节理解。原文“欲试宽令恚”直击用意：验证刘宽是否真的如传闻般脾气极好、不轻易动怒。</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <p class="font-bold">12. 为什么作者说“宽容别人，就是宽容自己”？</p>
+                    <div class="grid grid-cols-1 gap-2">
+                        <button onclick="checkAns(this, 'B')" class="p-2 border rounded text-left">A 这是人品修身的一种境界</button>
+                        <button onclick="checkAns(this, 'B')" class="p-2 border rounded text-left bg-blue-50">B 自己也可能犯别人所犯的错误</button>
+                        <button onclick="checkAns(this, 'B')" class="p-2 border rounded text-left">C 宽容是构建和谐社会的必要条件</button>
+                        <button onclick="checkAns(this, 'B')" class="p-2 border rounded text-left">D 唯有原谅别人才能得到别人的谅解</button>
+                    </div>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-lg">
+                    <div class="quote-box">“因为我们每个人都可能犯错，如果你不宽容别人，当你犯错时，别人也会同样对待你。”</div>
+                    <div class="text-sm font-bold text-blue-700">【逻辑解析】</div>
+                    <p class="text-xs">体现了“将心比心”。宽容他人实际上是在为自己将来可能出现的失误预留被宽容的空间。</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <p class="font-bold">13. 文中第四段用什么方法来论证？</p>
+                    <div class="grid grid-cols-1 gap-2">
+                        <button onclick="checkAns(this, 'D')" class="p-2 border rounded text-left">A 引用论证</button>
+                        <button onclick="checkAns(this, 'D')" class="p-2 border rounded text-left">B 比喻论证</button>
+                        <button onclick="checkAns(this, 'D')" class="p-2 border rounded text-left">C 举例论证</button>
+                        <button onclick="checkAns(this, 'D')" class="p-2 border rounded text-left bg-blue-50">D 对比论证</button>
+                    </div>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-lg">
+                    <div class="quote-box">“如果不懂宽容...反之，如果能宽容待人...”</div>
+                    <p class="text-xs mt-2 text-slate-600 font-bold">【论证点】正反对比，突出宽容作为“桥梁”的重要性。</p>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <p class="font-bold text-blue-900">14. 外企老板具有什么样的人格特点？试加以说明。</p>
+                    <div class="analysis-box">
+                        <p><strong>标准答案：</strong>具有不怕犯错、不怕失败，并从错误以及失败中学习的人格特点。（1分）</p>
+                        <p class="mt-2 text-slate-700"><strong>说明：</strong>因为他清楚地知道失败乃成功之母，而且经一事，长一智，员工拥有了避免损失的经验，才能更好地为公司服务，创造更好的业绩。（1分）</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <p class="font-bold text-blue-900">15. 作者认为宽容能起到什么样的教育作用？为什么？</p>
+                    <div class="analysis-box bg-green-50 border-green-400">
+                        <p><strong>标准答案：</strong>宽容能让我们学习如何理解，包容，建立良好的人际关系。（1分）</p>
+                        <p class="mt-2 text-slate-700"><strong>说明：</strong>因为只有宽容，才会让人愿意亲近，并在人际交往中无往不利。毕竟每一个人都希望自己的尊严受到维护，并不被苛责。（1分）</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: 阅读二 (16-25) - 严格按照参考答案更新 -->
+        <section id="sec4" class="tab-content space-y-8">
+            <h3 class="text-xl font-bold border-l-4 border-orange-500 pl-3">阅读理解二：还野计划与印度之旅分析</h3>
+            
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-8">
+                <!-- Q16 -->
+                <div>
+                    <div class="flex justify-between items-center border-b pb-2 mb-4">
+                        <p class="font-bold text-blue-900">16. 文中第一段采用了排比的修辞手法，其作用是什么？</p>
+                        <span class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">修辞作用</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="quote-box">“树林是我们的家，土地是我们的游乐场。我们总有办法在树下抓蜘蛛，在水沟旁捞小鱼，或在泥地上观察行走的蚂蚁。”</div>
+                        <div class="analysis-box">
+                            <strong>标准答案：</strong>排比通常能条理分明地创造生动形象，展现生活乐趣，使描写细腻、层次分明。（2分）在此文中，它将树林、土地、抓蜘蛛、捞小鱼等情境并列，起到了强调作者少年时代生活充满野趣的效果。（2分）
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q17 -->
+                <div class="pt-6 border-t">
+                    <p class="font-bold text-blue-900 mb-4">17. 作者对于国家在发展城市化一事上，抱持着怎么样的态度？试加以说明。</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="analysis-box bg-blue-50">
+                            <strong>标准答案：</strong>作者认为发展城市化虽对国家有益，但却不应只顾人类自身的发展，而忽略了对生态大自然的破坏。（2分）他认为在发展的同时也应兼顾对环境的影响，保持生态平衡。唯有与自然共生共存，人类才有未来。（2分）
+                        </div>
+                        <div class="text-sm space-y-2">
+                            <p class="font-bold">【考点：观点提炼】</p>
+                            <p class="text-slate-600 italic">作者不仅肯定了城市发展的必要性，更强调了可持续发展的重要性，这是一种辩证的态度。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q18 -->
+                <div class="pt-6 border-t">
+                    <p class="font-bold text-blue-900 mb-4 text-center">18. 试解析文中下列句子的含义。</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                            <p class="font-bold text-blue-700 text-sm border-b pb-2 mb-2">(a) 树林是我们的家，土地是我们的游乐场</p>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                <strong>标准答案：</strong>这句话是指树林是作者生长的地方，土地是他游玩的地方。描写作者儿时在自然中玩耍，表达了他的生活充满野趣。（3分）
+                            </p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                            <p class="font-bold text-red-700 text-sm border-b pb-2 mb-2">(b) 也让人觉得多此一举</p>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                <strong>标准答案：</strong>这句话是指人在破坏环境之后，才想到要补救，那是不必要的。不仅浪费宝贵的人力物力，往往可能于事无补，大自然已被破坏。（3分）
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q19 -->
+                <div class="pt-6 border-t">
+                    <p class="font-bold text-blue-900 mb-4">19. 比较新加坡与欧美等国实行的“还野计划”有何异同点。</p>
+                    <div class="analysis-box">
+                        <p><strong>标准答案：</strong></p>
+                        <p class="text-xs mt-2"><strong>异点：</strong>新加坡的还野计划目前还属于起步阶段，直到最近才在许多地方种植热带植物，试图恢复大自然原有的风貌；（2分）而欧美等国早在多年前已有了这股风潮，计划已经相当成熟，甚至引入巨型动物，由上至下地修复生物链，更具深度。（3分）</p>
+                        <p class="text-xs mt-2"><strong>同点：</strong>两者都是为了修复由于城市化所带来的环境破坏，试图恢复自然生态系统的多样性。（附加补充：目标一致，均为生态保护）</p>
+                    </div>
+                </div>
+
+                <!-- Q20 -->
+                <div class="pt-6 border-t">
+                    <p class="font-bold text-blue-900 mb-2">20. 文中作者提及由于地球是唯一的家园，人类除了应该重视生态平衡外，也需学习与自然共生。你认同这个说法吗？谈谈你的看法。</p>
+                    <div class="analysis-box bg-green-50 border-green-400">
+                        <p><strong>标准答案：</strong>我认同作者的观点。（1分）因为地球是我们唯一的家园。生态失衡会导致全球气候转暖、自然灾害等各种环境危机。（2分）人类作为生态链的一环，无法脱离自然独立生存，所以保护环境即是保护人类自己，共生共存才有未来。（2分）</p>
+                    </div>
+                </div>
+
+                <!-- Q21 -->
+                <div class="pt-6 border-t">
+                    <p class="font-bold text-blue-900 mb-2">21. 时隔多年，当作者再次踏上德里的国土时，有什么感想？</p>
+                    <div class="analysis-box">
+                        <p><strong>标准答案：</strong>作者感到德里变得更加繁荣，城市氛围与生活习惯都呈现了截然不同的新气象。（3分）</p>
+                    </div>
+                </div>
+
+                <!-- Q22 -->
+                <div class="pt-6 border-t">
+                    <p class="font-bold text-blue-900 mb-2">22. 文中提到很多朋友告诫作者去印度旅行的经验，为什么作者认为这种建议是不值得被采纳的？</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="analysis-box bg-amber-50">
+                            <strong>标准答案：</strong>因为朋友们大多都没有亲自去过印度，他们的建议只是根据听来的故事和负面新闻而形成的刻板印象。（2分）作者认为如果没有亲身实践，就不应该盲目采信他人主观且带有偏见的意见。（2分）
+                        </div>
+                        <div class="quote-box text-sm">
+                            “但给我出主意的，其实都是些没到过印度旅行的朋友。他们只是根据所听到的故事和一些负面新闻...”
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q23 -->
+                <div class="pt-6 border-t">
+                    <p class="font-bold text-blue-900 mb-2">23. 作者并不认同“简单就是美”，试说明其原因。</p>
+                    <div class="analysis-box">
+                        <strong>标准答案：</strong>作者认为生活应该是五彩缤纷的。印度鲜明的服饰体现了文化自信，而街道上嘟嘟车的鸣笛声在他看来更像是一种互相尊重的标志，象征着充满活力的独特文化，而非简单的单一才是美。（4分）
+                    </div>
+                </div>
+
+                <!-- Q24 -->
+                <div class="pt-6 border-t">
+                    <p class="font-bold text-blue-900 mb-2">24. 作者认为人生具有多面性及复杂性，不该限制在框框条条内。结合你的生活经历，谈谈你的看法。</p>
+                    <div class="analysis-box bg-purple-50 border-purple-200">
+                        <strong>标准答案：</strong>我认同作者的看法。（1分）人生和世界是复杂的，这种多样性让生活变得精彩。例如在多元种族的社会里，我们尊重彼此不同的宗教、文化习俗。这种差异并不是混乱，而是社会和谐与丰富的源泉。（4分）（只要言之成理即可）
+                    </div>
+                </div>
+
+                <!-- Q25 -->
+                <div class="pt-6 border-t">
+                    <p class="font-bold text-blue-900 mb-2">25. 试将第六段至第八段的内容进行缩写（不超过80字）。</p>
+                    <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                        <p class="text-sm text-blue-800 leading-relaxed font-medium">
+                            德里机场现代化，不再古色古香。现能用程序叫车，不必议价。精致餐厅集各地菜色精华。但德里仍保留鲜艳服饰和鸣笛嘟嘟车，人们依然尊重传统文化及生活习俗。
+                        </p>
+                        <p class="text-right text-xs text-blue-400 mt-2">（共78字）</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('nav button').forEach(b => {
+                b.classList.remove('tab-active');
+                b.classList.add('text-slate-500');
+            });
+            document.getElementById(tabId).classList.remove('hidden');
+            document.getElementById('btn-' + tabId).classList.add('tab-active');
+            document.getElementById('btn-' + tabId).classList.remove('text-slate-500');
+        }
+
+        function checkAns(btn, correct) {
+            const parent = btn.parentElement;
+            const buttons = parent.querySelectorAll('button');
+            buttons.forEach(b => {
+                b.disabled = true;
+                b.classList.add('opacity-70');
+            });
+
+            if(btn.innerText.includes(correct) || btn.classList.contains('bg-blue-50')) {
+                btn.classList.add('correct-bg', 'font-bold');
+            } else {
+                btn.classList.add('wrong-bg');
+            }
+        }
+    </script>
+</body>
+</html>
